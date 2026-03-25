@@ -1,0 +1,22 @@
+<section id="faq" class="desk-faq desk-section" appInView>
+  <h2 class="desk-section-title">Frequently Asked Questions</h2>
+
+  <div class="desk-faq-list desk-stagger">
+    <div
+      class="desk-faq-item"
+      *ngFor="let faq of faqs; let i = index"
+      [class.active]="activeIndex === i"
+    >
+      <button class="desk-faq-question" (click)="toggle(i)">
+        <span>{{ faq.question }}</span>
+        <span class="desk-faq-icon">
+          {{ activeIndex === i ? '−' : '+' }}
+        </span>
+      </button>
+
+      <div class="desk-faq-answer" [class.open]="activeIndex === i">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </div>
+</section>

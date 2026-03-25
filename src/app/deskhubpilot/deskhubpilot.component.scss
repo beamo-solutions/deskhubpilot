@@ -1,0 +1,62 @@
+.desk-deskpilot {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #000;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .desk-deskpilot-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .desk-deskpilot-img {
+    flex: 1 1 350px;
+    max-width: 500px;
+    border-radius: 20px;
+  }
+
+  .desk-deskpilot-card {
+    flex: 1 1 300px;
+    max-width: 400px;
+    text-align: left;
+  }
+
+  .desk-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 1.5rem;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+
+    li {
+      color: #8b8b8b;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .desk-deskpilot-content {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .desk-deskpilot-card {
+      max-width: 100%;
+    }
+
+    .desk-deskpilot-img {
+      max-width: 100%;
+    }
+  }
+}

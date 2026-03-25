@@ -1,0 +1,71 @@
+.desk-hero {
+  padding: 6rem 2rem;
+  background: #111;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /** allows component to stack up **/
+  justify-content: center;
+  align-items: center;
+
+  .desk-hero-content {
+    max-width: 800px;
+    flex: 1;
+
+    h1 { font-size: 2.5rem; margin-bottom: 1.5rem; color: #fff }
+    p { font-size: 1.2rem; margin-bottom: 2.5rem; color: #ccc; }
+
+    .desk-hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+    .light-bg {
+      background: #fff;
+      color: #000;
+    }
+    .light-bg:hover {
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }    
+    .transparent-dark {
+      background: #000;
+      color: #fff;
+      border-radius: 20px;
+      border: 1px solid #fff;
+    }
+    .transparent-dark:hover {
+      border: 1px solid #000;
+      border-radius: 20px;
+      background: #000;
+      color: #fff;
+    }
+  }
+
+  .desk-hero-image {
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      animation: float 4s ease-in-out infinite;
+    }
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (max-width: 768px) {
+    padding: 4rem 1rem;
+
+    .desk-hero-image { justify-content: center; }
+    .desk-hero-content h1 { font-size: 2rem; }
+    .desk-hero-content p { font-size: 1rem; }
+    .desk-hero-buttons { flex-direction: column; }
+  }
+}

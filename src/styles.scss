@@ -1,0 +1,242 @@
+//@import url('https://fonts.googleapis.com/css2?family=Clarity+City&display=swap'); // if using Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+// @font-face {
+//   font-family: 'Clarity City';
+//   src: url('/assets/fonts/ClarityCity.woff2') format('woff2'),
+//        url('/assets/fonts/ClarityCity.woff') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+/* Section background colors */
+$desk-section-light-bg: #fff;   // Light section
+$desk-section-dark-bg: #111;    // Dark section
+$desk-section-light-text: #000;
+$desk-section-dark-text: #fff;
+
+/* ======================
+   Global theme and fonts
+====================== */
+body {
+  //font-family: 'Clarity City, sans-serif', Roboto, sans-serif;
+  font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif;
+  background: #fff;        // Changed to white
+  color: #000;             // Text changed to black
+  margin: 0;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* ======================
+   Buttons
+====================== */
+.desk-btn {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.desk-btn:hover {
+  background: #fff;
+  transform: translateY(-2px);
+  color: #000;
+  border: 1px solid #000;
+}
+
+.desk-btn:active {
+  transform: translateY(0);
+}
+
+/* ======================
+   Cards
+====================== */
+.desk-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 2rem;
+  color: #000;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.desk-card:hover {
+  transform: translateY(-2px); /* subtle lift, removed heavy shadow */
+}
+
+/* ======================
+   Section Padding
+====================== */
+.desk-hero, 
+.desk-services, 
+.desk-deskpilot, 
+.desk-workflow, 
+.desk-testimonials, 
+.desk-pricing,
+.desk-carousel,
+.desk-faq, 
+.desk-cta {
+  padding: 3rem 2rem;
+  background: #fff;        // Keep sections white for now
+}
+
+/* ======================
+   Layout Helpers
+====================== */
+
+/* Horizontal card layout with responsive stacking */
+.desk-services, 
+.desk-pricing, 
+.desk-testimonials, 
+.desk-faq, 
+.desk-workflow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+
+  .desk-card { 
+    flex: 1 1 250px; 
+    max-width: 300px; 
+  }
+
+  @media (max-width: 768px) {
+    .desk-card { 
+      flex: 1 1 100%; 
+      max-width: 100%; 
+    }
+  }
+}
+
+/* Hero buttons layout */
+.desk-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+/* DeskPilot section layout */
+.desk-deskpilot-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+
+  .desk-deskpilot-img { flex: 1 1 350px; max-width: 500px; border-radius: 20px; height: 430px; }
+  .desk-deskpilot-card { flex: 1 1 300px; max-width: 400px; text-align: left; }
+
+  .desk-btn-group { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 1.5rem; }
+
+  ul { padding-left: 1.2rem; li { margin-bottom: 0.8rem; } }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    .desk-deskpilot-card, .desk-deskpilot-img { max-width: 100%; }
+  }
+}
+
+/* Modal */
+.desk-modal-backdrop {
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.desk-modal {
+  background: #222;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  color: #fff;
+}
+
+.desk-modal-close {
+  color: #1DB954;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  &:hover { transform: scale(1.2); }
+}
+
+/* ======================
+   Other Text Elements
+====================== */
+h1, h2, h3, h4 {
+  color: #000;             // Headings black
+}
+
+p, li, small {
+  color: #6c6c6c;             // Paragraphs and lists black
+}
+
+/* Misc */
+ul { list-style: disc inside; }
+img { max-width: 100%; border-radius: 12px; }
+
+/* ======================
+   Section Fade-In Animation
+====================== */
+.desk-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================
+   Staggered children
+====================== */
+.desk-stagger > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.desk-section.in-view .desk-stagger > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .desk-section,
+  .desk-stagger > * {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Delay steps (up to 10 items) */
+.desk-stagger > *:nth-child(1) { transition-delay: 0.1s; }
+.desk-stagger > *:nth-child(2) { transition-delay: 0.2s; }
+.desk-stagger > *:nth-child(3) { transition-delay: 0.3s; }
+.desk-stagger > *:nth-child(4) { transition-delay: 0.4s; }
+.desk-stagger > *:nth-child(5) { transition-delay: 0.5s; }
+.desk-stagger > *:nth-child(6) { transition-delay: 0.6s; }

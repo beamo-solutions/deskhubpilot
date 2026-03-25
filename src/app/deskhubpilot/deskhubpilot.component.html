@@ -1,0 +1,16 @@
+<section id="features" class="desk-deskpilot desk-section" appInView>
+  <h2>DeskHubPilot — Control Every Computer, Track Every Minute, Bill Automatically</h2>
+  <div class="desk-deskpilot-content">
+    <!-- <img src="https://assets-global.website-files.com/6327702d32b33ec99192370b/637d5f94fd7d4f1ea8793d31_thumbnail-4-offices-coworking-template-p-800.jpg" class="desk-deskpilot-img"> -->
+     <img src="assets/deskhubpilot-office.png" class="desk-deskpilot-img">
+    <div class="desk-card desk-deskpilot-card">
+      <ul>
+        <li *ngFor="let f of features">{{ f }}</li>
+      </ul>
+      <div class="desk-btn-group">
+        <button class="desk-btn" (click)="leadModal.open()">Start Free Trial</button>
+        <button class="desk-btn" (click)="leadModal.open()">Request Demo</button>
+      </div>
+    </div>
+  </div>
+</section>

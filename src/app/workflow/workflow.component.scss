@@ -1,0 +1,60 @@
+.desk-workflow {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #000;
+
+  h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  .desk-workflow-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 2rem;
+
+    .desk-card {
+      flex: 1 1 200px;
+      max-width: 250px;
+      background: #000;
+
+      p {
+        color: #ccc;
+      }
+
+      &:hover{
+        border-color: #bbb;
+        box-shadow: 0 0 8px 2px rgba(200,200,200,0.4);
+      }
+    }
+  }
+
+    .light-bg {
+      background: #fff;
+      color: #000;
+    }
+    .light-bg:hover {
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }      
+
+  .desk-btn-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .desk-workflow-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .desk-card {
+      max-width: 100%;
+    }
+  }
+}

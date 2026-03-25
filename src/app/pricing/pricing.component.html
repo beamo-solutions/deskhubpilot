@@ -1,0 +1,13 @@
+<section id="pricing" class="desk-pricing desk-section" appInView>
+  <h2>Pricing</h2>
+  <p>Choose the plan that fits your workspace size and needs.</p>
+  <div class="desk-pricing-grid desk-stagger">
+    <div class="desk-card desk-pricing-card" *ngFor="let tier of tiers">
+      <h3>{{ tier.name }}</h3>
+      <p class="desk-tier-tagline">{{ tier.tagline }}</p>
+      <p class="desk-tier-price">{{ tier.price }}</p>
+      <ul><li *ngFor="let f of tier.features">{{ f }}</li></ul>
+      <button class="desk-btn" (click)="selectPlan(tier.name, tier.price)">Choose {{ tier.name }}</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,99 @@
+.desk-faq {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+
+  /* Section header */
+  h2 {
+    flex: 0 0 100%;        /* Force full-width */
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+.desk-section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.desk-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.desk-faq-item {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.desk-faq-question {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.desk-faq-question:hover {
+  background: #f5f5f5;
+}
+
+.desk-faq-icon {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.desk-faq-answer {
+  background: #fafafa;
+  border-top: 1px solid #ddd;
+  max-height: 0;                 // collapsed by default
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+  padding: 0 1.5rem;             // horizontal padding, no vertical yet  
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.desk-faq-answer.open {
+  max-height: 500px;             // enough for your longest answer
+  opacity: 1;
+  padding: 1rem 1.5rem;          // add vertical padding when expanded
+}
+
+
+}
+
+/* Reuse your stagger system */
+.desk-faq-list.desk-stagger > * {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.desk-section.in-view .desk-faq-list.desk-stagger > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional: stagger timing for multiple items */
+.desk-faq-list.desk-stagger > *:nth-child(1) { transition-delay: 0.1s; }
+.desk-faq-list.desk-stagger > *:nth-child(2) { transition-delay: 0.2s; }
+.desk-faq-list.desk-stagger > *:nth-child(3) { transition-delay: 0.3s; }
+.desk-faq-list.desk-stagger > *:nth-child(4) { transition-delay: 0.4s; }
+.desk-faq-list.desk-stagger > *:nth-child(5) { transition-delay: 0.5s; }

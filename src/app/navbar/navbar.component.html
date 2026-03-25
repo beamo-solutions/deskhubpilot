@@ -1,0 +1,23 @@
+<header class="desk-navbar" [class.scrolled]="isScrolled">
+    <!-- Logo -->
+    <div class="desk-logo">
+        <img src="assets/hdp_logo.png" alt="DeskHubPilot Logo">
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="desk-nav-links" [class.open]="isMenuOpen">
+        <a href="#usecases" [class.active]="activeSection==='usecases'" (click)="goToSection($event,'usecases')">Use Cases</a>
+        <a href="#features" [class.active]="activeSection==='features'" (click)="goToSection($event,'features')">Features</a>
+        <a href="#pricing" [class.active]="activeSection==='pricing'" (click)="goToSection($event,'pricing')">Pricing</a>
+        <a href="#testimonials" [class.active]="activeSection==='testimonials'" (click)="goToSection($event,'testimonials')">Testimonials</a>
+        <a href="#faq" [class.active]="activeSection==='faq'" (click)="goToSection($event,'faq')">FAQ</a>
+        <button class="desk-btn" (click)="goToSection($event,'pricing')">Start Free Trial</button>
+    </nav>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="desk-menu-toggle" [class.open]="isMenuOpen" (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>

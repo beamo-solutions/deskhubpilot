@@ -1,0 +1,35 @@
+<div 
+  class="desk-modal-backdrop" 
+  [class.show]="isOpen" 
+  (click)="close()"
+>
+  <div class="desk-modal" (click)="$event.stopPropagation()">
+    <button class="desk-modal-close" (click)="close()">×</button>
+    <h2>Start Your Trial / Request Demo</h2>
+    <form #leadForm="ngForm" (ngSubmit)="submitLead(leadForm)">
+      <input type="text" name="name" placeholder="Your Name" ngModel required>
+      <input type="email" name="email" placeholder="Email Address" ngModel required email #emailCtrl="ngModel" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$">
+      <input type="text" name="company" placeholder="Company Name" ngModel>
+      <input type="text" name="website" ngModel style="display:none">
+      <textarea name="message" placeholder="Message / Notes" ngModel></textarea>
+      <button class="desk-btn" type="submit">Submit</button>
+
+      <p *ngIf="submitSuccess" class="success-msg">
+        Thank you!. We'll contact you soon.
+      </p>
+      <p *ngIf="submitError" class="error-msg">
+        {{submitError}}
+      </p>      
+
+      <div *ngIf="emailCtrl.invalid && emailCtrl.touched" class="error-msg">
+        <span *ngIf="emailCtrl.errors?.['required']">
+          Email is required.
+        </span>
+        <span *ngIf="emailCtrl.errors?.['email']">
+          Please enter a valid email address.
+        </span>
+      </div>
+
+    </form>
+  </div>
+</div>

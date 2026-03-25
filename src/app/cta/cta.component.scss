@@ -1,0 +1,52 @@
+.desk-cta {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #111;
+  color: #fff;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+
+  p {
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+
+  .desk-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+    .light-bg {
+      background: #fff;
+      color: #000;
+    }
+    .light-bg:hover {
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+    }    
+    .transparent-dark {
+      background: #000;
+      color: #fff;
+      border-radius: 20px;
+      border: 1px solid #fff;
+    }
+    .transparent-dark:hover {
+      border: 1px solid #000;
+      border-radius: 20px;
+      background: #000;
+      color: #fff;
+    }  
+
+  @media (max-width: 480px) {
+    .desk-cta-buttons {
+      flex-direction: column;
+    }
+  }
+}

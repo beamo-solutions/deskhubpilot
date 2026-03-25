@@ -1,0 +1,126 @@
+.desk-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem; /* ensures modal doesn’t touch screen edges on mobile */
+  overflow-y: auto; /* allows scrolling if content is taller than viewport */
+  opacity: 0;
+  pointer-events: none;          /* prevent clicks when hidden */
+  transition: opacity 0.4s ease;  
+
+  &.show {
+    opacity: 1;
+    pointer-events: auto;
+  }  
+}
+
+.desk-modal {
+  position: relative;
+  background: #222;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  max-width: 480px; /* modal will never exceed 480px */
+
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.4s ease;
+
+  .show & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+    
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+    color:#fff;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input,
+    textarea {
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      border: none;
+      background: #333;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .desk-btn {
+      align-self: center;
+      width: 50%;
+      margin-top: 1rem;
+    }
+  }
+}
+
+.desk-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+/* ======================
+   Lead Modal Input Fields - Fixed Width
+====================== */
+.desk-modal input,
+.desk-modal textarea {
+  width: 100%;
+  max-width: 100%;            // Ensure it doesn't exceed modal width
+  padding: 0.75rem 1rem;      // Inner spacing
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #000;
+  background: #fff;
+  box-sizing: border-box;     // Include padding in width
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.success-msg { color: #0f0; font-weight: 500; margin-top: 8px; }
+.error-msg { color: #f00; font-weight: 500; margin-top: 8px; }
+
+/* Glow effect on focus */
+.desk-modal input:focus,
+.desk-modal textarea:focus {
+  border-color: #bbb;
+  box-shadow: 0 0 8px 2px rgba(200,200,200,0.4);
+}

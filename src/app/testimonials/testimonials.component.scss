@@ -1,0 +1,35 @@
+.desk-testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  background: #111;
+  color: #fff;  
+
+  /* Section header */
+  h2 {
+    flex: 0 0 100%;        /* Force full-width */
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #fff;
+  }
+  p {
+    color: #fff;
+  }
+
+  .desk-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: #000;
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    .desk-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}

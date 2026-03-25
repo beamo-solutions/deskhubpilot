@@ -1,0 +1,9 @@
+<section class="desk-workflow desk-section" appInView>
+  <h2>Everything You Need to Control Shared Computers</h2>
+  <div class="desk-workflow-cards">
+    <div class="desk-card" *ngFor="let step of steps"><p>{{ step }}</p></div>
+  </div>
+  <div class="desk-btn-wrapper">
+    <button class="desk-btn light-bg" (click)="leadModal.open()">Request Demo</button>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+.desk-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  background: #f6f6f6;
+
+  /* Section header */
+  h2 {
+    flex: 0 0 100%;        /* Force full-width */
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  .desk-card {
+    flex: 1 1 250px;
+    max-width: 300px;
+  }
+
+  @media (max-width: 768px) {
+    .desk-card {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+}
