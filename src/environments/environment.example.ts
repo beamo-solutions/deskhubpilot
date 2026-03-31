@@ -2,5 +2,6 @@
 // These files are gitignored to keep secrets out of version control.
 export const environment = {
   production: false,
-  googleScriptUrl: 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'
+  googleScriptUrl: 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE',
+  appVersion: '0.0.0+0000'
 };

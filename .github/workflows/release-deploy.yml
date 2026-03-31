@@ -2,12 +2,34 @@ name: Release Deploy
 
 on:
   push:
-    branches: [release]
+    branches: ['release/**']
 
 jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      app_version: ${{ steps.version.outputs.app_version }}
+      build_number: ${{ steps.version.outputs.build_number }}
+      full_version: ${{ steps.version.outputs.full_version }}
+    steps:
+      - name: Extract version from branch name
+        id: version
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          APP_VERSION="${BRANCH#release/}"
+          BUILD_NUMBER=$(printf '%04d' ${{ github.run_number }})
+          echo "app_version=${APP_VERSION}" >> "$GITHUB_OUTPUT"
+          echo "build_number=${BUILD_NUMBER}" >> "$GITHUB_OUTPUT"
+          echo "full_version=${APP_VERSION}+${BUILD_NUMBER}" >> "$GITHUB_OUTPUT"
+
   pipeline:
-    uses: beamo-solutions/proxmox-homelab-integration/.github/workflows/reusable-full-pipeline.yml@main
+    needs: prepare
+    permissions: {}
+    uses: beamo-solutions/proxmox-homelab-intergration/.github/workflows/reusable-full-pipeline.yml@main
     with:
       app_name: deskhubpilot
       dockerfile: ./Dockerfile
+      app_version: ${{ needs.prepare.outputs.full_version }}
     secrets: inherit
