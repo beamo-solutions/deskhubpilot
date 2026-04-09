@@ -36,7 +36,8 @@ jobs:
 
   pipeline:
     needs: prepare
-    permissions: {}
+    permissions:
+      actions: read
     uses: beamo-solutions/proxmox-homelab-integration/.github/workflows/reusable-full-pipeline.yml@main
     with:
       app_name: deskhubpilot
