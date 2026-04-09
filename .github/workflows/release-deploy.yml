@@ -37,7 +37,7 @@ jobs:
   pipeline:
     needs: prepare
     permissions: {}
-    uses: beamo-solutions/proxmox-homelab-intergration/.github/workflows/reusable-full-pipeline.yml@main
+    uses: beamo-solutions/proxmox-homelab-integration/.github/workflows/reusable-full-pipeline.yml@main
     with:
       app_name: deskhubpilot
       dockerfile: ./Dockerfile
