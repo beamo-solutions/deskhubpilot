@@ -34,7 +34,8 @@ jobs:
           cat > src/environments/environment.prod.ts << 'EOF'
           export const environment = {
             production: true,
-            googleScriptUrl: '${{ secrets.GOOGLE_SCRIPT_URL }}'
+            googleScriptUrl: '${{ secrets.GOOGLE_SCRIPT_URL }}',
+            appVersion: '${{ inputs.version }}'
           };
           EOF
 
