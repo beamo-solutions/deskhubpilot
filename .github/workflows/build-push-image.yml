@@ -22,8 +22,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate environment.prod.ts
+      - name: Generate environment files
         run: |
+          cat > src/environments/environment.ts << 'EOF'
+          export const environment = {
+            production: false,
+            googleScriptUrl: '',
+            appVersion: '0.0.0+0000'
+          };
+          EOF
           cat > src/environments/environment.prod.ts << 'EOF'
           export const environment = {
             production: true,
