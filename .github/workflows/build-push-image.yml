@@ -22,6 +22,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate environment.prod.ts
+        run: |
+          cat > src/environments/environment.prod.ts << 'EOF'
+          export const environment = {
+            production: true,
+            googleScriptUrl: '${{ secrets.GOOGLE_SCRIPT_URL }}'
+          };
+          EOF
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
